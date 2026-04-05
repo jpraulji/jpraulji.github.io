@@ -1,8 +1,714 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaydipsinh Raulji — Oracle APEX Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --red:#C74634;--red-dark:#9E3828;--red-light:#F5E6E3;
+  --navy:#1B2A47;--blue:#1A6496;--blue-light:#E8F4FA;
+  --amber:#C8860A;--amber-light:#FFF4E5;--amber-dark:#7A4400;
+  --white:#FFFFFF;--gray-50:#F8F8F8;--gray-100:#F2F2F2;
+  --gray-200:#E5E5E5;--gray-300:#CCCCCC;--gray-500:#888888;
+  --gray-700:#555555;--gray-900:#1A1A1A;
+  --text:#333333;--muted:#666666;--border:#DEDEDE;
+  --shadow-sm:0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:0 2px 12px rgba(0,0,0,0.10);
+  --r:4px;--rl:6px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--gray-50);color:var(--text);font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ── */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);border-bottom:3px solid var(--red);}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;}
+.header-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
+.logo-mark{width:32px;height:32px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:white;flex-shrink:0;}
+.brand-name{color:white;font-weight:600;font-size:.92rem;}
+.brand-name span{color:#A8B8CC;font-weight:300;}
+.header-nav{display:flex;align-items:center;}
+.header-nav a{color:#A8B8CC;text-decoration:none;font-size:.82rem;padding:0 .9rem;height:56px;display:flex;align-items:center;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .15s,border-color .15s;}
+.header-nav a:hover{color:white;border-bottom-color:var(--red);}
+.hcta{background:var(--red)!important;color:white!important;border-radius:var(--r)!important;height:34px!important;padding:0 1.1rem!important;font-weight:600!important;margin-left:.75rem;border-bottom:none!important;font-size:.8rem!important;transition:background .15s!important;}
+.hcta:hover{background:var(--red-dark)!important;border-bottom:none!important;}
+
+/* ── HERO ── */
+#hero{background:var(--navy);padding:7rem 2rem 4rem;position:relative;overflow:hidden;}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 0,transparent 50%);background-size:12px 12px;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;position:relative;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(199,70,52,.18);border:1px solid rgba(199,70,52,.4);color:#FF9B8A;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:2px;margin-bottom:1.25rem;}
+.hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:white;line-height:1.1;letter-spacing:-.02em;margin-bottom:.35rem;}
+.hero-name strong{font-weight:700;}
+.hero-sub{font-size:clamp(.85rem,1.5vw,1rem);color:#8BA3C0;font-weight:300;margin-bottom:1.75rem;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem;}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#A8C0D8;font-size:.74rem;padding:.25rem .7rem;border-radius:2px;}
+.chip-mgr{background:rgba(200,134,10,.22)!important;border-color:rgba(200,134,10,.5)!important;color:#FFCF72!important;font-weight:600;}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
+.btn-red{display:inline-block;padding:.65rem 1.6rem;background:var(--red);color:white;font-size:.85rem;font-weight:600;text-decoration:none;border-radius:var(--r);transition:background .15s,transform .1s;}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-1px);}
+.btn-ghost{display:inline-block;padding:.65rem 1.6rem;border:1px solid rgba(255,255,255,.22);color:white;font-size:.85rem;text-decoration:none;border-radius:var(--r);transition:border-color .15s,background .15s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);}
+.hero-stats{display:flex;flex-direction:column;gap:.75rem;}
+.stat-c{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--rl);padding:1.1rem 1.6rem;text-align:center;min-width:130px;}
+.stat-c.mgr{border-color:rgba(200,134,10,.45);background:rgba(200,134,10,.12);}
+.stat-n{font-size:2.2rem;font-weight:700;color:white;line-height:1;}
+.stat-n em{color:var(--red);font-style:normal;}
+.stat-n.sm{font-size:1.3rem;letter-spacing:-.02em;}
+.stat-l{font-size:.68rem;color:#8BA3C0;text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem;}
+
+/* ── MAIN ── */
+.main{max-width:1200px;margin:0 auto;padding:2.5rem 2rem 3rem;}
+
+/* ── SECTION HEADERS ── */
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:.65rem;border-bottom:2px solid var(--border);}
+.sec-hd-l{display:flex;align-items:center;gap:.65rem;}
+.sec-bar{width:4px;height:26px;background:var(--red);border-radius:2px;flex-shrink:0;}
+.sec-hd h2{font-size:1.25rem;font-weight:600;color:var(--gray-900);letter-spacing:-.01em;}
+.sec-sub{font-size:.76rem;color:var(--muted);}
+
+/* ── CARDS ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--shadow-sm);}
+.card-b{padding:1.4rem;}
+
+/* ── ABOUT ── */
+#about{margin-bottom:2.5rem;}
+.about-grid{display:grid;grid-template-columns:1fr 370px;gap:1.5rem;}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:.85rem;font-size:.9rem;}
+.about-text p:last-child{margin-bottom:0;}
+.about-text strong{color:var(--text);font-weight:600;}
+.info-list{list-style:none;margin-top:1.25rem;}
+.info-list li{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--gray-100);font-size:.84rem;}
+.info-list li:last-child{border-bottom:none;}
+.ikey{color:var(--muted);min-width:85px;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding-top:1px;}
+.ival{color:var(--text);}
+.ival a{color:var(--blue);text-decoration:none;}
+.ival a:hover{text-decoration:underline;}
+.cert-b{display:flex;align-items:center;gap:.7rem;padding:.8rem .9rem;background:var(--red-light);border:1px solid rgba(199,70,52,.2);border-left:3px solid var(--red);border-radius:var(--r);margin-bottom:.55rem;}
+.cert-b:last-child{margin-bottom:0;}
+.cert-ic{width:30px;height:30px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.7rem;font-weight:700;flex-shrink:0;}
+.cert-t{font-size:.76rem;font-weight:600;color:var(--red-dark);line-height:1.3;}
+.cert-d{font-size:.68rem;color:var(--muted);margin-top:.1rem;}
+.sec-mini{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-500);margin-bottom:.9rem;}
+.comm-list{list-style:none;}
+.comm-list li{display:flex;gap:.5rem;font-size:.82rem;padding:.45rem 0;border-bottom:1px solid var(--gray-100);color:var(--muted);}
+.comm-list li:last-child{border-bottom:none;}
+.comm-list li b{color:var(--text);font-weight:600;min-width:80px;}
+
+/* ── EXPERIENCE ── */
+#experience{margin-bottom:2.5rem;}
+.exp-wrap{display:flex;flex-direction:column;gap:1px;}
+.exp-c{background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .2s;}
+.exp-c:first-child{border-radius:var(--rl) var(--rl) 0 0;}
+.exp-c:last-child{border-radius:0 0 var(--rl) var(--rl);}
+.exp-c:hover{box-shadow:var(--shadow-md);position:relative;z-index:1;}
+.exp-grid{display:grid;grid-template-columns:5px 1fr 155px;}
+.exp-stripe{align-self:stretch;}
+.exp-stripe.cur{background:var(--red);}
+.exp-stripe.old{background:var(--gray-300);}
+.exp-main{padding:1.2rem 1.35rem;}
+.exp-meta{padding:1.2rem 1.35rem;text-align:right;}
+.exp-period{font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.exp-badge{display:inline-block;background:var(--red);color:white;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:2px;margin-left:.35rem;vertical-align:middle;}
+.exp-mgr-badge{display:inline-block;background:var(--amber-light);border:1px solid rgba(200,134,10,.35);color:var(--amber-dark);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:2px;margin-left:.35rem;vertical-align:middle;}
+.exp-role{font-size:.96rem;font-weight:600;color:var(--gray-900);margin-bottom:.18rem;}
+.exp-company{font-size:.8rem;color:var(--blue);font-weight:600;margin-bottom:.7rem;}
+.exp-company span{color:var(--muted);font-weight:300;}
+.mgr-highlight{background:var(--amber-light);border:1px solid rgba(200,134,10,.22);border-left:3px solid var(--amber);border-radius:var(--r);padding:.8rem 1rem;margin-bottom:.85rem;}
+.mgr-highlight-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--amber-dark);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem;}
+.mgr-highlight-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+.mgr-highlight ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;}
+.mgr-highlight ul li{font-size:.81rem;color:#6B4000;padding-left:.9rem;position:relative;line-height:1.5;}
+.mgr-highlight ul li::before{content:'›';position:absolute;left:0;color:var(--amber);font-weight:700;}
+.exp-desc{font-size:.83rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.3rem;}
+.tg{font-size:.68rem;padding:.18rem .55rem;border-radius:2px;border:1px solid var(--gray-200);background:var(--gray-100);color:var(--gray-700);}
+.tg.ora{background:var(--red-light);border-color:rgba(199,70,52,.22);color:var(--red-dark);}
+.tg.bl{background:var(--blue-light);border-color:rgba(26,100,150,.2);color:var(--blue);}
+.tg.mgr{background:var(--amber-light);border-color:rgba(200,134,10,.28);color:var(--amber-dark);font-weight:600;}
+
+/* ── SKILLS ── */
+#skills{margin-bottom:2.5rem;}
+.skills-outer{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--shadow-sm);overflow:hidden;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+.sc{padding:1.35rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.sc:nth-child(3n){border-right:none;}
+.sc:nth-last-child(-n+3){border-bottom:none;}
+.sc.mgr-cat{background:var(--amber-light);border-left:3px solid var(--amber);}
+.sc-hd{display:flex;align-items:center;gap:.45rem;margin-bottom:.9rem;}
+.sc-dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;}
+.sc-dot.amber{background:var(--amber);}
+.sc-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-900);}
+.sc-title.amber{color:var(--amber-dark);}
+.pills{display:flex;flex-wrap:wrap;gap:.3rem;}
+.sp{font-size:.73rem;padding:.22rem .55rem;border-radius:2px;border:1px solid var(--gray-200);background:var(--gray-50);color:var(--muted);line-height:1.4;}
+.sp.core{background:var(--red-light);border-color:rgba(199,70,52,.25);color:var(--red-dark);font-weight:600;}
+.sp.bl{background:var(--blue-light);border-color:rgba(26,100,150,.2);color:var(--blue);}
+.sp.mgr{background:#FFF0D6;border-color:rgba(200,134,10,.3);color:var(--amber-dark);font-weight:600;}
+.sp.mgr-plain{border-color:rgba(200,134,10,.2);color:var(--amber-dark);background:rgba(255,244,229,.5);}
+
+/* ── PROJECTS ── */
+#projects{margin-bottom:2.5rem;}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.proj-c{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--shadow-sm);padding:1.2rem;transition:box-shadow .2s,border-color .2s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.proj-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gray-200);transition:background .2s;}
+.proj-c:hover{box-shadow:var(--shadow-md);border-color:rgba(199,70,52,.25);}
+.proj-c:hover::before{background:var(--red);}
+.proj-num{font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;font-family:'Source Code Pro',monospace;}
+.proj-name{font-size:.88rem;font-weight:600;color:var(--gray-900);margin-bottom:.55rem;line-height:1.3;}
+.proj-desc{font-size:.78rem;color:var(--muted);line-height:1.7;flex:1;}
+
+/* ── AWARDS ── */
+#awards{margin-bottom:2.5rem;}
+.award-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
+.award-c{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;display:flex;gap:.9rem;align-items:flex-start;}
+.award-ic{width:38px;height:38px;background:var(--red-light);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;}
+.award-t{font-size:.86rem;font-weight:600;color:var(--gray-900);margin-bottom:.2rem;line-height:1.35;}
+.award-o{font-size:.74rem;color:var(--muted);}
+
+/* ── CONTACT ── */
+#contact{margin-bottom:2.5rem;}
+.contact-card{background:var(--navy);border-radius:var(--rl);overflow:hidden;display:grid;grid-template-columns:1fr 280px;}
+.contact-l{padding:2.25rem;}
+.contact-l h3{font-size:1.4rem;font-weight:300;color:white;margin-bottom:.4rem;}
+.contact-l h3 strong{font-weight:700;}
+.contact-l p{color:#8BA3C0;font-size:.86rem;margin-bottom:1.75rem;line-height:1.7;}
+.contact-rows{display:flex;flex-direction:column;gap:.85rem;}
+.contact-row{display:flex;align-items:center;gap:.7rem;}
+.contact-ico{width:32px;height:32px;background:rgba(255,255,255,.08);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;}
+.contact-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:#6B8BAD;font-weight:600;}
+.contact-val{font-size:.83rem;color:white;}
+.contact-val a{color:#78AACC;text-decoration:none;}
+.contact-val a:hover{color:white;}
+.contact-r{background:var(--red);padding:2.25rem;display:flex;flex-direction:column;gap:1.25rem;justify-content:center;}
+.contact-r h4{color:white;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.2rem;}
+.contact-r p{color:rgba(255,255,255,.8);font-size:.78rem;line-height:1.6;}
+
+/* ── FOOTER ── */
+footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-align:center;padding:1.1rem 2rem;border-top:3px solid var(--red);}
+
+/* ── UTIL ── */
+.fade-in{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .header-nav{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;}
+  .about-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .sc:nth-child(2n){border-right:none;}
+  .sc:nth-child(3n){border-right:1px solid var(--border);}
+  .sc:nth-last-child(-n+3){border-bottom:1px solid var(--border);}
+  .sc:last-child{border-bottom:none;}
+  .proj-grid{grid-template-columns:repeat(2,1fr);}
+  .award-grid{grid-template-columns:1fr;}
+  .contact-card{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  #hero{padding:6rem 1rem 2rem;}
+  .main{padding:1.5rem 1rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  .sc:nth-child(n){border-right:none;border-bottom:1px solid var(--border);}
+  .sc:last-child{border-bottom:none;}
+  .proj-grid{grid-template-columns:1fr;}
+  .exp-grid{grid-template-columns:5px 1fr;}
+  .exp-meta{display:none;}
+}
+</style>
+</head>
 <body>
-  title: [APEX Aholic]
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="header-brand">
+      <div class="logo-mark">JR</div>
+      <span class="brand-name">Jaydipsinh Raulji <span>/ Oracle APEX Expert</span></span>
+    </a>
+    <nav class="header-nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact" class="hcta">Contact Me</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Available for opportunities</div>
+      <h1 class="hero-name"><strong>Jaydipsinh</strong> Raulji</h1>
+      <p class="hero-sub">Oracle APEX Cloud Developer Certified Professional &nbsp;&middot;&nbsp; Senior Architect &nbsp;&middot;&nbsp; Developer &nbsp;&middot;&nbsp; <strong style="color:#FFCF72;">Manager</strong> &nbsp;&middot;&nbsp; Mississauga, Ontario, Canada</p>
+      <div class="hero-chips">
+        <span class="chip">Oracle APEX 3.2&ndash;24.x</span>
+        <span class="chip">Oracle Cloud (OCI)</span>
+        <span class="chip">PL/SQL &middot; SQL</span>
+        <span class="chip">ORDS / REST</span>
+        <span class="chip">SQLcl &middot; Liquibase</span>
+        <span class="chip">AI Codex &middot; GenAI</span>
+        <span class="chip">Flow for APEX</span>
+        <span class="chip">DocGen &middot; AOP</span>
+        <span class="chip chip-mgr">&#9733; Team Manager &middot; Mentor</span>
+      </div>
+      <div class="hero-actions">
+        <a href="mailto:jpraulji@gmail.com" class="btn-red">Get in Touch</a>
+        <a href="#experience" class="btn-ghost">View Experience</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-c"><div class="stat-n">19<em>+</em></div><div class="stat-l">Years Experience</div></div>
+      <div class="stat-c"><div class="stat-n">20<em>+</em></div><div class="stat-l">Enterprise Projects</div></div>
+      <div class="stat-c"><div class="stat-n">5<em>+</em></div><div class="stat-l">Countries</div></div>
+      <div class="stat-c mgr"><div class="stat-n sm">MGR</div><div class="stat-l">Team Manager</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>About Me</h2></div>
+      <span class="sec-sub">Professional Summary &amp; Credentials</span>
+    </div>
+    <div class="about-grid">
+      <div class="card fade-in">
+        <div class="card-b">
+          <div class="about-text">
+            <p>Accomplished <strong>Senior Oracle APEX Developer &amp; Engineering Manager</strong> with 19 years of experience leading projects by acting as <strong>architect, developer, programmer analyst and manager</strong>. Proficient in supporting project deliverables and maintaining releases using Agile Methodologies.</p>
+            <p>A proven <strong>people leader</strong> &mdash; recruits, assembles and manages cross-functional teams of analysts, developers and interns; conducts code reviews, delivers mentorship and drives professional development across global client engagements. Equally strong in guiding support teams through complex production issues and in strategic planning with department heads and C-level stakeholders.</p>
+            <p>Hands-on experience with AI tools &mdash; GenAI, Codex (CLI, Desktop App, Extension), Cline and OpenCode for development, documentation and unit testing. Used <strong>SQLcl Projects</strong> with <strong>Liquibase</strong> to automate database source code management and deployments across environments.</p>
+          </div>
+          <ul class="info-list">
+            <li><span class="ikey">Location</span><span class="ival">Barrie, Ontario, Canada</span></li>
+            <li><span class="ikey">Email</span><span class="ival"><a href="mailto:jpraulji@gmail.com">jpraulji@gmail.com</a></span></li>
+            <li><span class="ikey">Phone</span><span class="ival">+1 647-382-5992</span></li>
+            <li><span class="ikey">LinkedIn</span><span class="ival"><a href="https://linkedin.com/in/jpraulji" target="_blank">linkedin.com/in/jpraulji</a></span></li>
+            <li><span class="ikey">Twitter</span><span class="ival"><a href="https://twitter.com/jpraulji" target="_blank">@jpraulji</a></span></li>
+            <li><span class="ikey">Education</span><span class="ival">MCA, Saurashtra University, India (2004&ndash;2007)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fade-in" style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card">
+          <div class="card-b">
+            <p class="sec-mini">Oracle Certifications</p>
+            <div class="cert-b">
+              <div class="cert-ic">CP</div>
+              <div><div class="cert-t">Oracle APEX Cloud Developer Certified Professional</div><div class="cert-d">Dec 2023 &middot; No Expiry</div></div>
+            </div>
+            <div class="cert-b">
+              <div class="cert-ic">CS</div>
+              <div><div class="cert-t">Oracle APEX Cloud Developer Certified Specialist</div><div class="cert-d">Jul 2021 &middot; No Expiry</div></div>
+            </div>
+            <div class="cert-b" style="background:var(--blue-light);border-color:rgba(26,100,150,.2);border-left-color:var(--blue);">
+              <div class="cert-ic" style="background:var(--blue);">AG</div>
+              <div><div class="cert-t" style="color:var(--blue);">Basics of Scrum, Agile &amp; Project Delivery</div><div class="cert-d">Apr 2018 &middot; No Expiry</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-b">
+            <p class="sec-mini">Community Involvement</p>
+            <ul class="comm-list">
+              <li><b>Volunteer</b> India Oracle APEX User Group</li>
+              <li><b>Organizer</b> Oracle APEX Gujarat Meetup</li>
+              <li><b>Organizer</b> Oracle APEX GTA Meetup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Professional Experience</h2></div>
+      <span class="sec-sub">19+ years across 5+ countries</span>
+    </div>
+    <div class="exp-wrap">
+
+      <!-- Oracle -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe cur"></div>
+          <div class="exp-main">
+            <div class="exp-role">Consulting Member of Technical Staff <span class="exp-badge">Current</span><span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">Oracle <span>&middot; Mississauga, Ontario</span></div>
+            <div class="mgr-highlight">
+              <div class="mgr-highlight-title">Management &amp; Leadership</div>
+              <ul>
+                <li>Provided mentorship to APEX developers; led development, deployment, support and code reviews across teams</li>
+                <li>Collaborated with cross-LOB teams, QA and architect groups across Oracle product lines</li>
+                <li>Coordinated requirement gathering, wire-frame design and production release planning</li>
+                <li>Drove crisis response &mdash; went the "extra mile" to ensure delivery goals are met under pressure</li>
+              </ul>
+            </div>
+            <p class="exp-desc">Lead Developer &amp; Architect for SaaS FrontDesk &mdash; Oracle's central tenant provisioning &amp; lifecycle management platform supporting upstream/downstream operations, licensing metrics, notification, group and payload management. Delivered MVP and full production release of Utility Billing for Government (UB4G), onboarding City of Bettendorf and subsequent municipalities. Implemented Telemetry APM, FlexForms utility, multi-tenant model solutions and used SQLcl Projects with Liquibase for automated deployments. Won FY25 Q1 IES Recognition Award (Performance Execution Leader), CDS Employee Spotlight Central Solutions Award and IES Sport Award (&times;2).</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX 24.x</span><span class="tg ora">OCI</span><span class="tg ora">SQLcl Projects</span><span class="tg ora">Liquibase</span><span class="tg ora">ORDS</span>
+              <span class="tg">PL/SQL</span><span class="tg">Telemetry APM</span><span class="tg">FlexForms</span><span class="tg">DocGen</span><span class="tg">AI Codex</span><span class="tg">Multi-tenant</span>
+              <span class="tg mgr">Team Mentorship</span><span class="tg mgr">Cross-LOB Collab</span><span class="tg mgr">Release Planning</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">May 2022 &mdash; Present</div></div>
+        </div>
+      </div>
+
+      <!-- Cargojet -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Senior Oracle APEX Developer <span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">Cargojet <span>&middot; Mississauga, Ontario</span></div>
+            <div class="mgr-highlight">
+              <div class="mgr-highlight-title">Management &amp; Leadership</div>
+              <ul>
+                <li>Led and coordinated teams of junior programmers and interns throughout the project lifecycle</li>
+                <li>Worked directly with department heads to understand workflow requirements and drive development priorities</li>
+                <li>Managed synchronization of development and production environments with production support oversight</li>
+              </ul>
+            </div>
+            <p class="exp-desc">Developed MoneyTrack (Sales CRM) with dashboards, KPI tracking, revenue goals and reports. Acted as Lead Developer &amp; Architect for the Revenue Management System &mdash; centralized revenue analysis, forecasting, accruals, adjustments, mapping rules and a rich reporting module with automated alerts and notifications.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg">PL/SQL</span><span class="tg">Interactive Reports</span><span class="tg">Revenue Analytics</span><span class="tg">CRM</span><span class="tg">AOP</span><span class="tg">Jasper Reports</span>
+              <span class="tg mgr">Team Lead</span><span class="tg mgr">Department Liaison</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Jul 2018 &mdash; Apr 2022</div></div>
+        </div>
+      </div>
+
+      <!-- Ostro Minerals -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Principal Oracle APEX Developer</div>
+            <div class="exp-company">Ostro Minerals (UK) Ltd. <span>&middot; London, UK</span></div>
+            <p class="exp-desc">Transformed legacy Excel and linode-based systems into an Oracle APEX &amp; Oracle Cloud enterprise stack for the global mineral industry. Developed ISQA Portal (ETL workflows, minerals tracking, shipment, billing, invoicing, accounts ledger, reporting, messaging) and ISQA Customer Portal. Integrated Stripe payment workflow.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle Cloud</span><span class="tg ora">Oracle APEX</span><span class="tg">ETL Workflows</span><span class="tg">Stripe API</span><span class="tg">Invoicing</span><span class="tg">Customer Portal</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Consulting</div></div>
+        </div>
+      </div>
+
+      <!-- FAM Properties -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Senior Oracle Developer / IT Manager <span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">FAM Properties <span>&middot; Dubai, UAE</span></div>
+            <div class="mgr-highlight">
+              <div class="mgr-highlight-title">Management &amp; Leadership</div>
+              <ul>
+                <li>Assembled and managed teams of information systems personnel for design, development and operations</li>
+                <li>Developed and implemented policies and procedures for electronic data capture and processing</li>
+                <li>Conferred directly with clients on system requirements, specifications, costs and timelines</li>
+                <li>Assisted team members during heavy workflow periods; maintained task manager logs for large enquiries</li>
+              </ul>
+            </div>
+            <p class="exp-desc">Developed FAM Real Estate ERP &amp; Property Management Portal covering listing management, leads booking workflows, marketing, HR, finance, CRM for websites and image processing. Worked with UI team for APEX custom theme development.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg">Real Estate ERP</span><span class="tg">Custom Themes</span><span class="tg">Google Maps API</span><span class="tg">CRM</span>
+              <span class="tg mgr">IT Management</span><span class="tg mgr">Team Assembly</span><span class="tg mgr">Client Relations</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Jun 2016 &mdash; Nov 2017</div></div>
+        </div>
+      </div>
+
+      <!-- Pinnacle -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Principal Oracle APEX Solution Architect</div>
+            <div class="exp-company">Pinnacle Innovation Group <span>&middot; CA, USA</span></div>
+            <p class="exp-desc">Lead Solution Architect for DBaaS Control Center &mdash; the first heterogeneous Database Automation framework. Designed microservices architecture and developed integration APIs for ITSM, Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch. Built ORDS-based RESTful web services and worked with DevOps for automated deployment of Oracle XE, APEX and ORDS.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg ora">ORDS REST</span><span class="tg">Microservices</span><span class="tg">Ansible Tower</span><span class="tg">Vault</span><span class="tg">MinIO</span><span class="tg">Elasticsearch</span><span class="tg">DevOps</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Consulting</div></div>
+        </div>
+      </div>
+
+      <!-- OracleAPEXConsultant -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Principal Oracle APEX Consultant <span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">OracleAPEXConsultant <span>&middot; Rajkot, India</span></div>
+            <div class="mgr-highlight">
+              <div class="mgr-highlight-title">Management &amp; Leadership</div>
+              <ul>
+                <li>Recruited and supervised computer analysts, programmers and other personnel; oversaw professional development and training</li>
+                <li>Planned, architected and managed technical solutions catering to various business groups and clients</li>
+                <li>Conferred with clients to discuss system requirements, specifications, costs and timelines</li>
+              </ul>
+            </div>
+            <p class="exp-desc">Managed an Oracle APEX consulting practice delivering training, development and support across Forms &amp; Reports, BI Analytics, DBA, SQL/PLSQL, Java/J2EE, Oracle ADF, PHP and mobile. Led full lifecycle design and development of enterprise web applications.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg ora">Oracle ADF</span><span class="tg">BI Analytics</span><span class="tg">DBA</span><span class="tg">Training</span>
+              <span class="tg mgr">Recruitment</span><span class="tg mgr">Team Supervision</span><span class="tg mgr">Client Management</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Jul 2012 &mdash; Apr 2016</div></div>
+        </div>
+      </div>
+
+      <!-- Niantic -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Senior Oracle APEX Consultant</div>
+            <div class="exp-company">Niantic Systems, LLC. <span>&middot; NJ, USA</span></div>
+            <p class="exp-desc">Developed SDSU AztecLink Portal for San Diego State University &mdash; a secure SSO platform for managing multiple SDSU accounts. Developed APIs for LDAP Server and Google Apps integration for user and group management.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg">LDAP Integration</span><span class="tg">Google Apps API</span><span class="tg">SSO</span><span class="tg">Higher Education</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">May 2011 &mdash; Apr 2012</div></div>
+        </div>
+      </div>
+
+      <!-- Pro SAAMYA -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Senior Oracle APEX Consultant</div>
+            <div class="exp-company">Pro SAAMYA Inc. <span>&middot; NJ, USA</span></div>
+            <p class="exp-desc">Project Lead for Cattle Investors &mdash; Beef Asset Pro, the world's first online virtual Feed Yard Manager built as an Oracle APEX SaaS solution. Developed APIs for SVG integration with APEX. Designed database objects and led testing, troubleshooting, deployment and mentoring of the development team.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg">SaaS</span><span class="tg">SVG API</span><span class="tg">Agriculture</span><span class="tg mgr">Project Lead</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Apr 2010 &mdash; Apr 2012</div></div>
+        </div>
+      </div>
+
+      <!-- Cybernation -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Senior Software Engineer / Oracle APEX Developer</div>
+            <div class="exp-company">Cybernation InfoTech Inc. <span>&middot; Vadodara, India</span></div>
+            <p class="exp-desc">Developed multiple APEX projects for the HIPAA-compliant medical transcription industry. Built a secure HTTP-based multi-file uploader applet compatible with ADF &amp; APEX. Integrated Apache James Server; developed mailing, FTP, data loading and invoicing APIs. Implemented Oracle Text and Oracle Secure File features.</p>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX</span><span class="tg">Oracle Text</span><span class="tg">Oracle Secure Files</span><span class="tg">HIPAA</span><span class="tg">PL/SQL</span><span class="tg">Java</span><span class="tg">Payment API</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">Feb 2007 &mdash; Feb 2010</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Technical Skills</h2></div>
+      <span class="sec-sub">Full-stack Oracle ecosystem expertise</span>
+    </div>
+    <div class="skills-outer fade-in">
+      <div class="skills-grid">
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Oracle APEX Platform</div></div>
+          <div class="pills">
+            <span class="sp core">Oracle APEX 3.2&ndash;24.x</span><span class="sp core">ORDS</span><span class="sp core">APEX Plugins</span>
+            <span class="sp core">Custom Themes</span><span class="sp core">Flow for APEX</span>
+            <span class="sp">Interactive Reports</span><span class="sp">Master Detail Forms</span><span class="sp">APEX Collections</span>
+            <span class="sp">Charts &amp; Dashboards</span><span class="sp">REST Data Sources</span><span class="sp">Universal Theme</span><span class="sp">Page Designer</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Database &amp; SQL</div></div>
+          <div class="pills">
+            <span class="sp core">SQL</span><span class="sp core">PL/SQL</span><span class="sp core">Oracle 10g&ndash;19c / XE</span>
+            <span class="sp core">SQLcl</span><span class="sp core">Liquibase</span>
+            <span class="sp">Oracle Text</span><span class="sp">Oracle Secure Files</span><span class="sp">Oracle Scheduler</span>
+            <span class="sp">Data Pump</span><span class="sp">SQL Developer</span><span class="sp">Toad for Oracle</span>
+            <span class="sp">Oracle Data Modeler</span><span class="sp">MySQL</span><span class="sp">MS Access</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">DevOps &amp; Deployment</div></div>
+          <div class="pills">
+            <span class="sp core">SQLcl Projects</span><span class="sp core">Liquibase</span><span class="sp core">Git</span><span class="sp core">SVN</span>
+            <span class="sp">JIRA</span><span class="sp">BPMN</span><span class="sp">MS Visio</span>
+            <span class="sp">Ansible Tower</span><span class="sp">APEX Export/Import</span>
+            <span class="sp">Scripted Deployment</span><span class="sp">CI/CD Pipelines</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Cloud &amp; Infrastructure</div></div>
+          <div class="pills">
+            <span class="sp core">Oracle Cloud (OCI)</span><span class="sp core">IDCS</span>
+            <span class="sp">AWS S3</span><span class="sp">MinIO</span><span class="sp">Hashicorp Vault</span>
+            <span class="sp">Elasticsearch</span><span class="sp">Apache</span>
+            <span class="sp">Oracle HTTP Server</span><span class="sp">Tomcat</span>
+            <span class="sp">JBoss AS</span><span class="sp">Glassfish</span><span class="sp">Oracle AS 10g/11g</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Languages &amp; Frameworks</div></div>
+          <div class="pills">
+            <span class="sp core">JavaScript</span><span class="sp core">jQuery</span><span class="sp core">HTML / CSS</span>
+            <span class="sp core">JSON / XML / YML</span>
+            <span class="sp">Java / J2EE</span><span class="sp">PHP</span><span class="sp">Python</span><span class="sp">.NET</span>
+            <span class="sp">ExtJs</span><span class="sp">Bootstrap</span><span class="sp">SVG</span>
+            <span class="sp">Oracle ADF</span><span class="sp">JSP / Servlets</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Reporting &amp; Document Gen</div></div>
+          <div class="pills">
+            <span class="sp core">Jasper Reports</span><span class="sp core">AOP (APEX Office Print)</span>
+            <span class="sp core">Oracle BI Publisher</span><span class="sp core">DocGen</span>
+            <span class="sp">PDF Templates</span><span class="sp">Interactive Reports</span><span class="sp">Oracle Analytics</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Integrations &amp; APIs</div></div>
+          <div class="pills">
+            <span class="sp core">ORDS REST Web Services</span>
+            <span class="sp">Stripe</span><span class="sp">PayPal</span><span class="sp">Hyper Pay</span><span class="sp">TouchNet</span><span class="sp">Your Pay</span>
+            <span class="sp">Google Maps API</span><span class="sp">Google Calendar</span><span class="sp">Google Apps API</span>
+            <span class="sp">Google Distance API</span><span class="sp">LDAP Server</span>
+            <span class="sp">UPS Rating API</span><span class="sp">REDCAP</span><span class="sp">SimpleTexting API</span>
+            <span class="sp">Easy Workforce</span><span class="sp">ECB Currency API</span>
+            <span class="sp">Yahoo Currency API</span><span class="sp">OCI APIs</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">AI &amp; Productivity Tools</div></div>
+          <div class="pills">
+            <span class="sp core">Codex CLI</span><span class="sp core">Codex Desktop App</span>
+            <span class="sp core">Codex Extension</span><span class="sp core">GenAI</span><span class="sp core">Cline</span>
+            <span class="sp">OpenCode</span><span class="sp">VSCode</span><span class="sp">Oracle JDeveloper</span>
+            <span class="sp">AI Unit Testing</span><span class="sp">AI Documentation</span>
+          </div>
+        </div>
+
+        <div class="sc mgr-cat">
+          <div class="sc-hd"><div class="sc-dot amber"></div><div class="sc-title amber">Management &amp; Leadership</div></div>
+          <div class="pills">
+            <span class="sp mgr">Team Management</span><span class="sp mgr">People Leadership</span>
+            <span class="sp mgr">Hiring &amp; Recruitment</span><span class="sp mgr">Mentoring &amp; Coaching</span>
+            <span class="sp mgr-plain">Sprint Planning</span><span class="sp mgr-plain">Stakeholder Management</span>
+            <span class="sp mgr-plain">Requirement Gathering</span><span class="sp mgr-plain">Release Management</span>
+            <span class="sp mgr-plain">Code Reviews</span><span class="sp mgr-plain">Capacity Planning</span>
+            <span class="sp mgr-plain">Cross-LOB Collaboration</span><span class="sp mgr-plain">Production Support Lead</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Oracle APEX Projects</h2></div>
+      <span class="sec-sub">Notable enterprise deliverables</span>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-c fade-in"><div class="proj-num">Project 01</div><div class="proj-name">SaaS FrontDesk (Oracle)</div><p class="proj-desc">Oracle's central tenant provisioning &amp; lifecycle management platform. Supports multiple workflow configurations, licensing metrics tracking, notification modules, group management and payload management.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 02</div><div class="proj-name">Utility Billing for Government (UB4G)</div><p class="proj-desc">End-to-end government billing SaaS solution. Delivered from MVP to full production with multi-tenant model. First customer: City of Bettendorf, Iowa. Subsequent municipalities onboarded after launch.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 03</div><div class="proj-name">KM Revenue Management System</div><p class="proj-desc">Centralized revenue analysis and forecasting platform for Cargojet with accrual management, adjustment tracking, mapping rules and an advanced reporting module with automated alerts and notifications.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 04</div><div class="proj-name">MoneyTrack &mdash; Sales CRM</div><p class="proj-desc">Dashboard-driven Sales CRM with KPI tracking, revenue goal management, pipeline reporting and centralized operations. Simplified Cargojet's sales workflow and improved data accuracy organization-wide.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 05</div><div class="proj-name">FAM Real Estate ERP</div><p class="proj-desc">Full-stack real estate ERP covering listing management, lead booking workflows, marketing, HR, finance, property management, website CRM integration and image processing. Custom APEX themes developed.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 06</div><div class="proj-name">ISQA Portal (Ostro Minerals)</div><p class="proj-desc">Enterprise portal for the global mineral industry (Diamond, Morganite, Topaz) with ETL workflows, minerals tracking, shipment, billing, invoicing, accounts ledger, reporting and Stripe payment integration.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 07</div><div class="proj-name">DBaaS Control Center</div><p class="proj-desc">First heterogeneous Database Automation framework with advanced analytics. Integrated Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch with microservices architecture and ORDS REST services.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 08</div><div class="proj-name">SDSU AztecLink Portal</div><p class="proj-desc">Secure SSO portal for San Diego State University enabling campus-wide multi-account management with LDAP Server and Google Apps API integration for user and group management.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 09</div><div class="proj-name">Beef Asset Pro (Cattle Investors)</div><p class="proj-desc">World's first online virtual Feed Yard Manager &mdash; an Oracle APEX SaaS solution for agriculture with SVG API integration, complete database design and a multi-tenant architecture.</p></div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Awards &amp; Recognition</h2></div>
+      <span class="sec-sub">Honours received throughout career</span>
+    </div>
+    <div class="award-grid">
+      <div class="award-c fade-in"><div class="award-ic">&#127942;</div><div><div class="award-t">FY25 Q1 IES Recognition Award &mdash; Performance Execution Leader</div><div class="award-o">Oracle &middot; Internal engineering excellence recognition</div></div></div>
+      <div class="award-c fade-in"><div class="award-ic">&#11088;</div><div><div class="award-t">CDS Employee Spotlight &mdash; Central Solutions Award</div><div class="award-o">Oracle &middot; Exceptional contributions to Central Development Solutions</div></div></div>
+      <div class="award-c fade-in"><div class="award-ic">&#127894;</div><div><div class="award-t">IES Sport Award (&times;2)</div><div class="award-o">Oracle &middot; Received twice for sustained above-and-beyond delivery</div></div></div>
+      <div class="award-c fade-in"><div class="award-ic">&#127909;</div><div><div class="award-t">Oracle Groundbreakers YouTube &mdash; "Why I Am an APEX Aholic"</div><div class="award-o">Oracle &middot; Featured on official Oracle Groundbreakers YouTube channel</div></div></div>
+      <div class="award-c fade-in"><div class="award-ic">&#129351;</div><div><div class="award-t">1st Prize &mdash; State Level Software Competition "IT Excellence"</div><div class="award-o">Feb 2004 &middot; State-level software competition first prize</div></div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-hd fade-in">
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Get In Touch</h2></div>
+      <span class="sec-sub">Open to consulting, senior architect &amp; leadership roles</span>
+    </div>
+    <div class="contact-card fade-in">
+      <div class="contact-l">
+        <h3><strong>Let's work</strong> together</h3>
+        <p>Open to consulting engagements, senior APEX architect roles, engineering manager positions and enterprise Oracle projects globally. 19+ years of proven delivery across government, airline, real estate, minerals, agriculture and technology sectors.</p>
+        <div class="contact-rows">
+          <div class="contact-row"><div class="contact-ico">&#128231;</div><div><div class="contact-lbl">Email</div><div class="contact-val"><a href="mailto:jpraulji@gmail.com">jpraulji@gmail.com</a></div></div></div>
+          <div class="contact-row"><div class="contact-ico">&#128222;</div><div><div class="contact-lbl">Phone</div><div class="contact-val">+1 647-382-5992</div></div></div>
+          <div class="contact-row"><div class="contact-ico">&#128188;</div><div><div class="contact-lbl">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/jpraulji" target="_blank">linkedin.com/in/jpraulji</a></div></div></div>
+          <div class="contact-row"><div class="contact-ico">&#128038;</div><div><div class="contact-lbl">Twitter / X</div><div class="contact-val"><a href="https://twitter.com/jpraulji" target="_blank">@jpraulji</a></div></div></div>
+          <div class="contact-row"><div class="contact-ico">&#128205;</div><div><div class="contact-lbl">Location</div><div class="contact-val">Barrie, Ontario, Canada</div></div></div>
+        </div>
+      </div>
+      <div class="contact-r">
+        <div><h4>Key Strengths</h4><p>Architecture &middot; Development &middot; Team Management &middot; People Leadership &middot; Agile Delivery &middot; Client Engagement</p></div>
+        <div><h4>Domain Experience</h4><p>Government &middot; Airline &middot; Real Estate &middot; Minerals &middot; Agriculture &middot; Healthcare &middot; Education &middot; Technology</p></div>
+        <div><h4>Certifications</h4><p>Oracle APEX Cloud Developer Certified Professional &amp; Specialist &middot; Agile / Scrum</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Jaydipsinh Raulji &middot; Oracle APEX Cloud Developer Certified Professional &middot; Barrie, Ontario, Canada</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
