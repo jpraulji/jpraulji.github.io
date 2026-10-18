@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jaydipsinh Raulji — Oracle APEX Expert</title>
+<title>Jaydipsinh Raulji — Engineering Manager &amp; Oracle APEX Expert</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -44,10 +44,12 @@ body{background:var(--gray-50);color:var(--text);font-family:'Source Sans 3',-ap
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .hero-name{font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:white;line-height:1.1;letter-spacing:-.02em;margin-bottom:.35rem;}
 .hero-name strong{font-weight:700;}
-.hero-sub{font-size:clamp(.85rem,1.5vw,1rem);color:#8BA3C0;font-weight:300;margin-bottom:1.75rem;}
+.hero-sub{font-size:clamp(.85rem,1.5vw,1rem);color:#8BA3C0;font-weight:300;margin-bottom:.5rem;}
+.hero-sub2{font-size:.82rem;color:#6B8BAD;font-weight:300;margin-bottom:1.75rem;font-style:italic;}
 .hero-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem;}
 .chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#A8C0D8;font-size:.74rem;padding:.25rem .7rem;border-radius:2px;}
 .chip-mgr{background:rgba(200,134,10,.22)!important;border-color:rgba(200,134,10,.5)!important;color:#FFCF72!important;font-weight:600;}
+.chip-cur{background:rgba(199,70,52,.22)!important;border-color:rgba(199,70,52,.5)!important;color:#FF9B8A!important;font-weight:600;}
 .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
 .btn-red{display:inline-block;padding:.65rem 1.6rem;background:var(--red);color:white;font-size:.85rem;font-weight:600;text-decoration:none;border-radius:var(--r);transition:background .15s,transform .1s;}
 .btn-red:hover{background:var(--red-dark);transform:translateY(-1px);}
@@ -99,6 +101,13 @@ body{background:var(--gray-50);color:var(--text);font-family:'Source Sans 3',-ap
 .comm-list li:last-child{border-bottom:none;}
 .comm-list li b{color:var(--text);font-weight:600;min-width:80px;}
 
+/* ── METRICS STRIP ── */
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem;}
+.metric-c{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--shadow-sm);padding:1.2rem 1.4rem;text-align:center;border-top:3px solid var(--red);}
+.metric-n{font-size:2rem;font-weight:700;color:var(--navy);line-height:1;}
+.metric-n em{color:var(--red);font-style:normal;}
+.metric-l{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.3rem;}
+
 /* ── EXPERIENCE ── */
 #experience{margin-bottom:2.5rem;}
 .exp-wrap{display:flex;flex-direction:column;gap:1px;}
@@ -106,7 +115,7 @@ body{background:var(--gray-50);color:var(--text);font-family:'Source Sans 3',-ap
 .exp-c:first-child{border-radius:var(--rl) var(--rl) 0 0;}
 .exp-c:last-child{border-radius:0 0 var(--rl) var(--rl);}
 .exp-c:hover{box-shadow:var(--shadow-md);position:relative;z-index:1;}
-.exp-grid{display:grid;grid-template-columns:5px 1fr 155px;}
+.exp-grid{display:grid;grid-template-columns:5px 1fr 165px;}
 .exp-stripe{align-self:stretch;}
 .exp-stripe.cur{background:var(--red);}
 .exp-stripe.old{background:var(--gray-300);}
@@ -124,6 +133,12 @@ body{background:var(--gray-50);color:var(--text);font-family:'Source Sans 3',-ap
 .mgr-highlight ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;}
 .mgr-highlight ul li{font-size:.81rem;color:#6B4000;padding-left:.9rem;position:relative;line-height:1.5;}
 .mgr-highlight ul li::before{content:'›';position:absolute;left:0;color:var(--amber);font-weight:700;}
+.exp-subsection{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);margin:.75rem 0 .35rem;display:flex;align-items:center;gap:.4rem;}
+.exp-subsection::before{content:'';width:12px;height:2px;background:var(--blue);border-radius:1px;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-bottom:.6rem;}
+.exp-bullets li{font-size:.83rem;color:var(--muted);padding-left:.9rem;position:relative;line-height:1.6;}
+.exp-bullets li::before{content:'›';position:absolute;left:0;color:var(--red);font-weight:700;}
+.exp-bullets li strong{color:var(--text);font-weight:600;}
 .exp-desc{font-size:.83rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem;}
 .exp-tags{display:flex;flex-wrap:wrap;gap:.3rem;}
 .tg{font-size:.68rem;padding:.18rem .55rem;border-radius:2px;border:1px solid var(--gray-200);background:var(--gray-100);color:var(--gray-700);}
@@ -201,6 +216,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
   .hero-inner{grid-template-columns:1fr;}
   .hero-stats{flex-direction:row;flex-wrap:wrap;}
   .about-grid{grid-template-columns:1fr;}
+  .metrics-strip{grid-template-columns:repeat(2,1fr);}
   .skills-grid{grid-template-columns:repeat(2,1fr);}
   .sc:nth-child(2n){border-right:none;}
   .sc:nth-child(3n){border-right:1px solid var(--border);}
@@ -213,6 +229,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
 @media(max-width:600px){
   #hero{padding:6rem 1rem 2rem;}
   .main{padding:1.5rem 1rem;}
+  .metrics-strip{grid-template-columns:repeat(2,1fr);}
   .skills-grid{grid-template-columns:1fr;}
   .sc:nth-child(n){border-right:none;border-bottom:1px solid var(--border);}
   .sc:last-child{border-bottom:none;}
@@ -229,7 +246,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
   <div class="header-inner">
     <a href="#" class="header-brand">
       <div class="logo-mark">JR</div>
-      <span class="brand-name">Jaydipsinh Raulji <span>/ Oracle APEX Expert</span></span>
+      <span class="brand-name">Jaydipsinh Raulji <span>/ Engineering Manager &amp; Oracle APEX Expert</span></span>
     </a>
     <nav class="header-nav">
       <a href="#about">About</a>
@@ -249,17 +266,18 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
     <div>
       <div class="hero-eyebrow">Available for opportunities</div>
       <h1 class="hero-name"><strong>Jaydipsinh</strong> Raulji</h1>
-      <p class="hero-sub">Oracle APEX Cloud Developer Certified Professional &nbsp;&middot;&nbsp; Senior Architect &nbsp;&middot;&nbsp; Developer &nbsp;&middot;&nbsp; <strong style="color:#FFCF72;">Manager</strong> &nbsp;&middot;&nbsp; Mississauga, Ontario, Canada</p>
+      <p class="hero-sub">Engineering Manager &nbsp;&middot;&nbsp; Agile Delivery &nbsp;&middot;&nbsp; Payments &amp; API Platforms &nbsp;&middot;&nbsp; Cloud Architect</p>
+      <p class="hero-sub2">Oracle APEX Cloud Developer Certified Professional &nbsp;&middot;&nbsp; Barrie, Ontario, Canada</p>
       <div class="hero-chips">
-        <span class="chip">Oracle APEX 3.2&ndash;24.x</span>
-        <span class="chip">Oracle Cloud (OCI)</span>
-        <span class="chip">PL/SQL &middot; SQL</span>
-        <span class="chip">ORDS / REST</span>
+        <span class="chip chip-cur">&#9679; Senior Consultant @ ACT</span>
+        <span class="chip chip-mgr">&#9733; Team Manager &middot; Mentor</span>
+        <span class="chip">Oracle APEX 3.2&ndash;26.x</span>
+        <span class="chip">REST API Design &amp; Governance</span>
+        <span class="chip">OAuth2 &middot; SSO &middot; IAM</span>
+        <span class="chip">OCI &middot; AWS</span>
         <span class="chip">SQLcl &middot; Liquibase</span>
         <span class="chip">AI Codex &middot; GenAI</span>
-        <span class="chip">Flow for APEX</span>
-        <span class="chip">DocGen &middot; AOP</span>
-        <span class="chip chip-mgr">&#9733; Team Manager &middot; Mentor</span>
+        <span class="chip">PCI &middot; Payments</span>
       </div>
       <div class="hero-actions">
         <a href="mailto:jpraulji@gmail.com" class="btn-red">Get in Touch</a>
@@ -278,6 +296,26 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
 <!-- MAIN -->
 <main class="main">
 
+  <!-- METRICS STRIP -->
+  <div class="metrics-strip fade-in">
+    <div class="metric-c">
+      <div class="metric-n">25<em>K+</em></div>
+      <div class="metric-l">Platform Users (SFD)</div>
+    </div>
+    <div class="metric-c">
+      <div class="metric-n">75<em>%</em></div>
+      <div class="metric-l">Provisioning Time Reduced</div>
+    </div>
+    <div class="metric-c">
+      <div class="metric-n">50<em>+</em></div>
+      <div class="metric-l">REST API Endpoints Built</div>
+    </div>
+    <div class="metric-c">
+      <div class="metric-n">40<em>K+</em></div>
+      <div class="metric-l">UB4G City Users Supported</div>
+    </div>
+  </div>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="sec-hd fade-in">
@@ -288,9 +326,9 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
       <div class="card fade-in">
         <div class="card-b">
           <div class="about-text">
-            <p>Accomplished <strong>Senior Oracle APEX Developer &amp; Engineering Manager</strong> with 19 years of experience leading projects by acting as <strong>architect, developer, programmer analyst and manager</strong>. Proficient in supporting project deliverables and maintaining releases using Agile Methodologies.</p>
-            <p>A proven <strong>people leader</strong> &mdash; recruits, assembles and manages cross-functional teams of analysts, developers and interns; conducts code reviews, delivers mentorship and drives professional development across global client engagements. Equally strong in guiding support teams through complex production issues and in strategic planning with department heads and C-level stakeholders.</p>
-            <p>Hands-on experience with AI tools &mdash; GenAI, Codex (CLI, Desktop App, Extension), Cline and OpenCode for development, documentation and unit testing. Used <strong>SQLcl Projects</strong> with <strong>Liquibase</strong> to automate database source code management and deployments across environments.</p>
+            <p><strong>Engineering Manager, Architect and Delivery DRI</strong> with 19 years of hands-on technical leadership building secure, high-scale API platforms, microservice-based SaaS systems and payment services. Manages and develops engineering teams in <strong>Agile/Scrum</strong> delivery &mdash; recruits, interviews, coaches and mentors engineers, supports career growth, runs code reviews and sets engineering standards &mdash; while staying accountable for delivery commitments.</p>
+            <p>Partners with <strong>product owners, QA, Security, production operations</strong> and executive stakeholders (currently reporting directly to an <strong>SVP</strong>). Drives regular releases to TEST and production with a focus on <strong>CI/CD, build and test automation</strong>, test harness frameworks and incident response. Deep expertise in <strong>REST API design and governance, OAuth2/SSO, least-privilege IAM</strong>, observability/APM and multi-tenant SaaS on <strong>OCI/AWS</strong>.</p>
+            <p>Known for <strong>reducing provisioning time by ~75%</strong>, enabling platforms trusted by <strong>25,000+ users</strong>, and applying <strong>AI (Codex, GenAI, Cline) across the SDLC</strong> to speed development, unit testing, documentation and code review. Experienced in <strong>PCI-regulated environments</strong> with payment-security controls, secure authentication and data protection across payment integrations.</p>
           </div>
           <ul class="info-list">
             <li><span class="ikey">Location</span><span class="ival">Barrie, Ontario, Canada</span></li>
@@ -305,7 +343,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
       <div class="fade-in" style="display:flex;flex-direction:column;gap:1rem;">
         <div class="card">
           <div class="card-b">
-            <p class="sec-mini">Oracle Certifications</p>
+            <p class="sec-mini">Certifications</p>
             <div class="cert-b">
               <div class="cert-ic">CP</div>
               <div><div class="cert-t">Oracle APEX Cloud Developer Certified Professional</div><div class="cert-d">Dec 2023 &middot; No Expiry</div></div>
@@ -317,6 +355,10 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
             <div class="cert-b" style="background:var(--blue-light);border-color:rgba(26,100,150,.2);border-left-color:var(--blue);">
               <div class="cert-ic" style="background:var(--blue);">AG</div>
               <div><div class="cert-t" style="color:var(--blue);">Basics of Scrum, Agile &amp; Project Delivery</div><div class="cert-d">Apr 2018 &middot; No Expiry</div></div>
+            </div>
+            <div class="cert-b" style="background:#F0F7F0;border-color:rgba(40,120,40,.2);border-left-color:#2E7D32;margin-top:.55rem;">
+              <div class="cert-ic" style="background:#2E7D32;">IO</div>
+              <div><div class="cert-t" style="color:#1B5E20;">InsideOut Coaching&trade;</div><div class="cert-d">Jul 2023 &middot; No Expiry</div></div>
             </div>
           </div>
         </div>
@@ -342,30 +384,79 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
     </div>
     <div class="exp-wrap">
 
-      <!-- Oracle -->
+      <!-- ACT -->
       <div class="exp-c fade-in">
         <div class="exp-grid">
           <div class="exp-stripe cur"></div>
           <div class="exp-main">
-            <div class="exp-role">Consulting Member of Technical Staff <span class="exp-badge">Current</span><span class="exp-mgr-badge">&#9733; Manager</span></div>
-            <div class="exp-company">Oracle <span>&middot; Mississauga, Ontario</span></div>
+            <div class="exp-role">Senior Consultant (Contractor) <span class="exp-badge">Current</span><span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">Appraisal &amp; Collection Technologies, LLC <span>&middot; Contract</span></div>
             <div class="mgr-highlight">
               <div class="mgr-highlight-title">Management &amp; Leadership</div>
               <ul>
-                <li>Provided mentorship to APEX developers; led development, deployment, support and code reviews across teams</li>
-                <li>Collaborated with cross-LOB teams, QA and architect groups across Oracle product lines</li>
-                <li>Coordinated requirement gathering, wire-frame design and production release planning</li>
-                <li>Drove crisis response &mdash; went the "extra mile" to ensure delivery goals are met under pressure</li>
+                <li>Report directly to the SVP; architect solutions and own delivery from design through production release</li>
+                <li>Train, guide and code-review junior developers; support recruitment and conduct technical interviews of candidates</li>
+                <li>Work closely with the QA team &mdash; provide test documentation, release to TEST and drive releases to production</li>
               </ul>
             </div>
-            <p class="exp-desc">Lead Developer &amp; Architect for SaaS FrontDesk &mdash; Oracle's central tenant provisioning &amp; lifecycle management platform supporting upstream/downstream operations, licensing metrics, notification, group and payload management. Delivered MVP and full production release of Utility Billing for Government (UB4G), onboarding City of Bettendorf and subsequent municipalities. Implemented Telemetry APM, FlexForms utility, multi-tenant model solutions and used SQLcl Projects with Liquibase for automated deployments. Won FY25 Q1 IES Recognition Award (Performance Execution Leader), CDS Employee Spotlight Central Solutions Award and IES Sport Award (&times;2).</p>
+            <div class="exp-subsection">Platform Modernization</div>
+            <ul class="exp-bullets">
+              <li>Modernized payment-processing services utilizing <strong>secure API-first architecture</strong>, compliance-focused design patterns and payment-security controls supporting regulated transaction workflows</li>
+              <li><strong>Led the transformation of the legacy USIOPAY payment system</strong> into a centralized, Oracle-based REST service &mdash; with unit testing, logging and a production-ready design so multiple counties can adopt it</li>
+              <li><strong>Led the transformation of the legacy Apache Solr search and admin module</strong> to the latest Oracle technology stack, leveraging new REST APIs</li>
+            </ul>
             <div class="exp-tags">
-              <span class="tg ora">Oracle APEX 24.x</span><span class="tg ora">OCI</span><span class="tg ora">SQLcl Projects</span><span class="tg ora">Liquibase</span><span class="tg ora">ORDS</span>
-              <span class="tg">PL/SQL</span><span class="tg">Telemetry APM</span><span class="tg">FlexForms</span><span class="tg">DocGen</span><span class="tg">AI Codex</span><span class="tg">Multi-tenant</span>
-              <span class="tg mgr">Team Mentorship</span><span class="tg mgr">Cross-LOB Collab</span><span class="tg mgr">Release Planning</span>
+              <span class="tg ora">Oracle</span><span class="tg ora">REST Services</span><span class="tg ora">ORDS</span>
+              <span class="tg">Payments (USIOPAY)</span><span class="tg">Apache Solr</span><span class="tg">Unit Testing</span><span class="tg">PCI Compliance</span>
+              <span class="tg mgr">SVP Reporting</span><span class="tg mgr">QA &amp; Releases</span><span class="tg mgr">Tech Interviews</span>
             </div>
           </div>
-          <div class="exp-meta"><div class="exp-period">May 2022 &mdash; Present</div></div>
+          <div class="exp-meta"><div class="exp-period">Jun 2026 &mdash; Present</div></div>
+        </div>
+      </div>
+
+      <!-- Oracle -->
+      <div class="exp-c fade-in">
+        <div class="exp-grid">
+          <div class="exp-stripe old"></div>
+          <div class="exp-main">
+            <div class="exp-role">Consulting Member of Technical Staff <span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-company">Oracle <span>&middot; Mississauga, Ontario (Remote)</span></div>
+            <div class="mgr-highlight">
+              <div class="mgr-highlight-title">Management &amp; Leadership</div>
+              <ul>
+                <li>Delivery DRI and backup Software Development Manager for SaaS FrontDesk; mentored engineering teams and drove best practices in development, code review, architecture and deployment</li>
+                <li>Partnered closely with Product Owners, QA, Operations and Architecture teams while managing delivery commitments across multiple concurrent engineering initiatives</li>
+                <li>Collaborated with cross-LOB teams, CI/CD and architect stakeholders; coordinated requirements, wire-frames and production release planning</li>
+                <li>Led crisis response and Tier 3 production support, going the extra mile to protect delivery goals under pressure</li>
+              </ul>
+            </div>
+            <div class="exp-subsection">Platform &amp; API Leadership</div>
+            <ul class="exp-bullets">
+              <li>Architected and led development of <strong>SaaS FrontDesk (SFD)</strong>, a mission-critical platform used by <strong>6+ Global Industry Units and 25,000+ users</strong></li>
+              <li><strong>Reduced provisioning time by ~75%</strong> by automating end-to-end workflows across upstream and downstream technical teams, replacing weeks-long manual processes</li>
+              <li>Designed and delivered <strong>50+ ORDS-based REST API endpoints</strong> supporting enterprise integrations across CIM, APPMAN, GIU control management plane and Oracle CCS API server; established API versioning standards with <strong>99%+ uptime</strong></li>
+              <li>Implemented <strong>Telemetry APM</strong> across APEX applications for proactive incident detection at platform scale; built test harness frameworks improving API reliability and regression coverage</li>
+            </ul>
+            <div class="exp-subsection">Security &amp; Identity Management</div>
+            <ul class="exp-bullets">
+              <li>Designed enterprise IAM using <strong>IDCS, OAuth2 and RBAC</strong>; implemented SSO and a least-privilege security model with CSSAP and 3PL compliance</li>
+              <li>Worked within <strong>payment-security and compliance frameworks</strong> supporting PCI-regulated environments, applying secure authentication, authorization, encryption, token management and data protection controls</li>
+              <li>Strengthened API-level governance through token-based authentication and API security standards</li>
+            </ul>
+            <div class="exp-subsection">Key Deliverables</div>
+            <ul class="exp-bullets">
+              <li>Led full SDLC for <strong>Utility Billing for Government (UB4G)</strong> from MVP through production onboarding of municipal customers (City of Bettendorf), supporting <strong>40,000+ city users</strong></li>
+              <li>Leveraged AI-first practices (Codex CLI/Desktop, GenAI, Cline) to accelerate development, unit testing, documentation and code review; used SQLcl Projects to automate CI/CD and environment synchronization</li>
+              <li>Won <strong>FY25 Q1 IES Recognition Award</strong> (Performance Execution Leader), CDS Employee Spotlight Central Solutions Award and IES Sport Award (&times;2)</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tg ora">Oracle APEX 24.x</span><span class="tg ora">OCI</span><span class="tg ora">SQLcl Projects</span><span class="tg ora">Liquibase</span><span class="tg ora">ORDS</span>
+              <span class="tg">OAuth2 / IDCS</span><span class="tg">Telemetry APM</span><span class="tg">Multi-tenant</span><span class="tg">AI Codex</span><span class="tg">PCI Compliance</span>
+              <span class="tg mgr">Delivery DRI</span><span class="tg mgr">Product Owner Collab</span><span class="tg mgr">Release Planning</span>
+            </div>
+          </div>
+          <div class="exp-meta"><div class="exp-period">May 2022 &mdash; Apr 2026</div></div>
         </div>
       </div>
 
@@ -379,15 +470,15 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
             <div class="mgr-highlight">
               <div class="mgr-highlight-title">Management &amp; Leadership</div>
               <ul>
+                <li>Led Agile delivery, release planning, production support and stakeholder collaboration for mission-critical revenue and reporting systems</li>
                 <li>Led and coordinated teams of junior programmers and interns throughout the project lifecycle</li>
                 <li>Worked directly with department heads to understand workflow requirements and drive development priorities</li>
-                <li>Managed synchronization of development and production environments with production support oversight</li>
               </ul>
             </div>
-            <p class="exp-desc">Developed MoneyTrack (Sales CRM) with dashboards, KPI tracking, revenue goals and reports. Acted as Lead Developer &amp; Architect for the Revenue Management System &mdash; centralized revenue analysis, forecasting, accruals, adjustments, mapping rules and a rich reporting module with automated alerts and notifications.</p>
+            <p class="exp-desc">Acted as Lead Developer &amp; Architect for the Revenue Management System &mdash; a central platform for revenue analysis, forecasting, accrual, adjustment, mapping rules and reporting used across business units. Built MoneyTrack (Sales CRM) with dashboards, KPI tracking, revenue goals and reporting modules. Synchronized development and production environments; designed database objects (packages, procedures, functions, triggers) optimized for performance.</p>
             <div class="exp-tags">
               <span class="tg ora">Oracle APEX</span><span class="tg">PL/SQL</span><span class="tg">Interactive Reports</span><span class="tg">Revenue Analytics</span><span class="tg">CRM</span><span class="tg">AOP</span><span class="tg">Jasper Reports</span>
-              <span class="tg mgr">Team Lead</span><span class="tg mgr">Department Liaison</span>
+              <span class="tg mgr">Agile Delivery</span><span class="tg mgr">Team Lead</span>
             </div>
           </div>
           <div class="exp-meta"><div class="exp-period">Jul 2018 &mdash; Apr 2022</div></div>
@@ -401,7 +492,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
           <div class="exp-main">
             <div class="exp-role">Principal Oracle APEX Developer</div>
             <div class="exp-company">Ostro Minerals (UK) Ltd. <span>&middot; London, UK</span></div>
-            <p class="exp-desc">Transformed legacy Excel and linode-based systems into an Oracle APEX &amp; Oracle Cloud enterprise stack for the global mineral industry. Developed ISQA Portal (ETL workflows, minerals tracking, shipment, billing, invoicing, accounts ledger, reporting, messaging) and ISQA Customer Portal. Integrated Stripe payment workflow.</p>
+            <p class="exp-desc">Led digital transformation of decade-old legacy Excel and Linode-based processes into a cutting-edge Oracle APEX &amp; Oracle Cloud (OCI) technology stack for the global mineral industry. Developed ISQA Portal &amp; Customer Portal (ETL workflows, minerals tracking, billing &amp; invoicing, accounts ledger, shipment management, plans/users/roles, purchase credit, certification requests, messaging and reporting). Integrated secure Stripe payment workflows and custom ETL processes for global mineral tracking.</p>
             <div class="exp-tags">
               <span class="tg ora">Oracle Cloud</span><span class="tg ora">Oracle APEX</span><span class="tg">ETL Workflows</span><span class="tg">Stripe API</span><span class="tg">Invoicing</span><span class="tg">Customer Portal</span>
             </div>
@@ -420,16 +511,14 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
             <div class="mgr-highlight">
               <div class="mgr-highlight-title">Management &amp; Leadership</div>
               <ul>
-                <li>Assembled and managed teams of information systems personnel for design, development and operations</li>
-                <li>Developed and implemented policies and procedures for electronic data capture and processing</li>
-                <li>Conferred directly with clients on system requirements, specifications, costs and timelines</li>
-                <li>Assisted team members during heavy workflow periods; maintained task manager logs for large enquiries</li>
+                <li>Assembled and managed teams of information systems personnel; oversaw professional development and training</li>
+                <li>Implemented policies and procedures for electronic data capture; conferred with clients on requirements, costs and timelines</li>
               </ul>
             </div>
-            <p class="exp-desc">Developed FAM Real Estate ERP &amp; Property Management Portal covering listing management, leads booking workflows, marketing, HR, finance, CRM for websites and image processing. Worked with UI team for APEX custom theme development.</p>
+            <p class="exp-desc">Led development of FAM Real Estate ERP &amp; Property Management Portal covering listing management, leads management, leads booking workflow, feeds management, marketing, HR, finance management, property management, CRM for websites and image processing. Worked closely with UI team on custom APEX theme development.</p>
             <div class="exp-tags">
               <span class="tg ora">Oracle APEX</span><span class="tg">Real Estate ERP</span><span class="tg">Custom Themes</span><span class="tg">Google Maps API</span><span class="tg">CRM</span>
-              <span class="tg mgr">IT Management</span><span class="tg mgr">Team Assembly</span><span class="tg mgr">Client Relations</span>
+              <span class="tg mgr">IT Management</span><span class="tg mgr">Team Assembly</span>
             </div>
           </div>
           <div class="exp-meta"><div class="exp-period">Jun 2016 &mdash; Nov 2017</div></div>
@@ -443,9 +532,9 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
           <div class="exp-main">
             <div class="exp-role">Principal Oracle APEX Solution Architect</div>
             <div class="exp-company">Pinnacle Innovation Group <span>&middot; CA, USA</span></div>
-            <p class="exp-desc">Lead Solution Architect for DBaaS Control Center &mdash; the first heterogeneous Database Automation framework. Designed microservices architecture and developed integration APIs for ITSM, Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch. Built ORDS-based RESTful web services and worked with DevOps for automated deployment of Oracle XE, APEX and ORDS.</p>
+            <p class="exp-desc">Lead Solution Architect &amp; Development Manager for DBaaS Control Center &mdash; the first heterogeneous Database Automation framework with advanced analytics. Designed and implemented a <strong>distributed microservices architecture</strong> supporting scalable, highly available enterprise platforms and cloud-based integrations. Developed integration APIs for ITSM, Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch. Built ORDS-based RESTful web services and collaborated with DevOps on automated deployment of Oracle XE, APEX and ORDS.</p>
             <div class="exp-tags">
-              <span class="tg ora">Oracle APEX</span><span class="tg ora">ORDS REST</span><span class="tg">Microservices</span><span class="tg">Ansible Tower</span><span class="tg">Vault</span><span class="tg">MinIO</span><span class="tg">Elasticsearch</span><span class="tg">DevOps</span>
+              <span class="tg ora">Oracle APEX</span><span class="tg ora">ORDS REST</span><span class="tg">Distributed Microservices</span><span class="tg">Ansible Tower</span><span class="tg">Vault</span><span class="tg">MinIO</span><span class="tg">Elasticsearch</span><span class="tg">DevOps</span>
             </div>
           </div>
           <div class="exp-meta"><div class="exp-period">Consulting</div></div>
@@ -457,52 +546,37 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
         <div class="exp-grid">
           <div class="exp-stripe old"></div>
           <div class="exp-main">
-            <div class="exp-role">Principal Oracle APEX Consultant <span class="exp-mgr-badge">&#9733; Manager</span></div>
+            <div class="exp-role">Principal Oracle APEX Consultant / Software Development Manager <span class="exp-mgr-badge">&#9733; Manager</span></div>
             <div class="exp-company">OracleAPEXConsultant <span>&middot; Rajkot, India</span></div>
             <div class="mgr-highlight">
               <div class="mgr-highlight-title">Management &amp; Leadership</div>
               <ul>
-                <li>Recruited and supervised computer analysts, programmers and other personnel; oversaw professional development and training</li>
-                <li>Planned, architected and managed technical solutions catering to various business groups and clients</li>
-                <li>Conferred with clients to discuss system requirements, specifications, costs and timelines</li>
+                <li>Acted as Software Development Manager owning full lifecycle delivery &mdash; requirements, architecture, design, development, testing, deployment and support</li>
+                <li>Recruited, supervised and mentored computer analysts and programmers; oversaw professional development and training</li>
+                <li>Managed client relationships directly &mdash; conferred with clients on system requirements, specifications, costs and timelines, translating business needs into technical solutions and delivery plans</li>
+                <li>Partnered with business groups and stakeholders to plan, architect and manage technical solutions catering to diverse client needs</li>
               </ul>
             </div>
-            <p class="exp-desc">Managed an Oracle APEX consulting practice delivering training, development and support across Forms &amp; Reports, BI Analytics, DBA, SQL/PLSQL, Java/J2EE, Oracle ADF, PHP and mobile. Led full lifecycle design and development of enterprise web applications.</p>
+            <p class="exp-desc">Led architecture, design and delivery of multiple APEX projects for diverse business clients. Delivered Oracle APEX and Java development training to teams, building skills across Forms &amp; Reports, BI Analytics, DBA, SQL/PL/SQL, Java/J2EE, Oracle ADF, PHP and mobile. Implemented security standards for web applications.</p>
             <div class="exp-tags">
               <span class="tg ora">Oracle APEX</span><span class="tg ora">Oracle ADF</span><span class="tg">BI Analytics</span><span class="tg">DBA</span><span class="tg">Training</span>
-              <span class="tg mgr">Recruitment</span><span class="tg mgr">Team Supervision</span><span class="tg mgr">Client Management</span>
+              <span class="tg mgr">Software Dev Manager</span><span class="tg mgr">Recruitment</span><span class="tg mgr">Client Management</span>
             </div>
           </div>
           <div class="exp-meta"><div class="exp-period">Jul 2012 &mdash; Apr 2016</div></div>
         </div>
       </div>
 
-      <!-- Niantic -->
+      <!-- Niantic / Pro SAAMYA -->
       <div class="exp-c fade-in">
         <div class="exp-grid">
           <div class="exp-stripe old"></div>
           <div class="exp-main">
             <div class="exp-role">Senior Oracle APEX Consultant</div>
-            <div class="exp-company">Niantic Systems, LLC. <span>&middot; NJ, USA</span></div>
-            <p class="exp-desc">Developed SDSU AztecLink Portal for San Diego State University &mdash; a secure SSO platform for managing multiple SDSU accounts. Developed APIs for LDAP Server and Google Apps integration for user and group management.</p>
+            <div class="exp-company">Niantic Systems, LLC. / Pro SAAMYA Inc. <span>&middot; NJ, USA</span></div>
+            <p class="exp-desc">Developed SDSU AztecLink Portal for San Diego State University &mdash; API integration with LDAP Server and Google Apps for user and group management. Acted as Project Lead for Cattle Investors: Beef Asset Pro &mdash; the world's first online virtual feed yard manager (SaaS). Designed database objects, developed SVG integration APIs, led testing, troubleshooting, deployment and mentoring of the development team.</p>
             <div class="exp-tags">
-              <span class="tg ora">Oracle APEX</span><span class="tg">LDAP Integration</span><span class="tg">Google Apps API</span><span class="tg">SSO</span><span class="tg">Higher Education</span>
-            </div>
-          </div>
-          <div class="exp-meta"><div class="exp-period">May 2011 &mdash; Apr 2012</div></div>
-        </div>
-      </div>
-
-      <!-- Pro SAAMYA -->
-      <div class="exp-c fade-in">
-        <div class="exp-grid">
-          <div class="exp-stripe old"></div>
-          <div class="exp-main">
-            <div class="exp-role">Senior Oracle APEX Consultant</div>
-            <div class="exp-company">Pro SAAMYA Inc. <span>&middot; NJ, USA</span></div>
-            <p class="exp-desc">Project Lead for Cattle Investors &mdash; Beef Asset Pro, the world's first online virtual Feed Yard Manager built as an Oracle APEX SaaS solution. Developed APIs for SVG integration with APEX. Designed database objects and led testing, troubleshooting, deployment and mentoring of the development team.</p>
-            <div class="exp-tags">
-              <span class="tg ora">Oracle APEX</span><span class="tg">SaaS</span><span class="tg">SVG API</span><span class="tg">Agriculture</span><span class="tg mgr">Project Lead</span>
+              <span class="tg ora">Oracle APEX</span><span class="tg">LDAP Integration</span><span class="tg">Google Apps API</span><span class="tg">SSO</span><span class="tg">SaaS</span><span class="tg">SVG API</span><span class="tg mgr">Project Lead</span>
             </div>
           </div>
           <div class="exp-meta"><div class="exp-period">Apr 2010 &mdash; Apr 2012</div></div>
@@ -516,7 +590,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
           <div class="exp-main">
             <div class="exp-role">Senior Software Engineer / Oracle APEX Developer</div>
             <div class="exp-company">Cybernation InfoTech Inc. <span>&middot; Vadodara, India</span></div>
-            <p class="exp-desc">Developed multiple APEX projects for the HIPAA-compliant medical transcription industry. Built a secure HTTP-based multi-file uploader applet compatible with ADF &amp; APEX. Integrated Apache James Server; developed mailing, FTP, data loading and invoicing APIs. Implemented Oracle Text and Oracle Secure File features.</p>
+            <p class="exp-desc">Developed multiple APEX projects for the HIPAA-compliant medical transcription industry (DD System, Dic2Doc Portal, Customer Portal, Payment System, Training Management System). Built a secure HTTP-based multi-file uploader applet compatible with ADF &amp; APEX. Integrated Apache James Server; developed mailing, FTP, data loading and invoicing APIs. Implemented Oracle Text and Oracle Secure File features. Integrated Your Pay payment gateway with APEX.</p>
             <div class="exp-tags">
               <span class="tg ora">Oracle APEX</span><span class="tg">Oracle Text</span><span class="tg">Oracle Secure Files</span><span class="tg">HIPAA</span><span class="tg">PL/SQL</span><span class="tg">Java</span><span class="tg">Payment API</span>
             </div>
@@ -532,18 +606,40 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
   <section id="skills">
     <div class="sec-hd fade-in">
       <div class="sec-hd-l"><div class="sec-bar"></div><h2>Technical Skills</h2></div>
-      <span class="sec-sub">Full-stack Oracle ecosystem expertise</span>
+      <span class="sec-sub">Full-stack Oracle &amp; API platform expertise</span>
     </div>
     <div class="skills-outer fade-in">
       <div class="skills-grid">
 
         <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Security &amp; IAM</div></div>
+          <div class="pills">
+            <span class="sp core">OAuth2</span><span class="sp core">RBAC</span><span class="sp core">SSO</span><span class="sp core">IDCS</span>
+            <span class="sp core">PCI-Regulated Environments</span>
+            <span class="sp">Token-based Auth</span><span class="sp">CSSAP Compliance</span><span class="sp">Least-Privilege IAM</span>
+            <span class="sp">API-level Governance</span><span class="sp">3PL Compliance</span>
+          </div>
+        </div>
+
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">API &amp; Platform</div></div>
+          <div class="pills">
+            <span class="sp core">REST API Design &amp; Governance</span><span class="sp core">ORDS</span>
+            <span class="sp core">API Versioning</span><span class="sp core">Microservices</span>
+            <span class="sp">Distributed Systems</span><span class="sp">API Observability / APM</span>
+            <span class="sp">Test Harness Frameworks</span><span class="sp">OpenAPI / Swagger</span>
+            <span class="sp">Postman / Bruno</span><span class="sp">Apache Solr</span>
+            <span class="sp">Payments (USIOPAY, Stripe)</span>
+          </div>
+        </div>
+
+        <div class="sc">
           <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Oracle APEX Platform</div></div>
           <div class="pills">
-            <span class="sp core">Oracle APEX 3.2&ndash;24.x</span><span class="sp core">ORDS</span><span class="sp core">APEX Plugins</span>
+            <span class="sp core">Oracle APEX 3.2&ndash;26.x</span><span class="sp core">ORDS</span><span class="sp core">APEX Plugins</span>
             <span class="sp core">Custom Themes</span><span class="sp core">Flow for APEX</span>
             <span class="sp">Interactive Reports</span><span class="sp">Master Detail Forms</span><span class="sp">APEX Collections</span>
-            <span class="sp">Charts &amp; Dashboards</span><span class="sp">REST Data Sources</span><span class="sp">Universal Theme</span><span class="sp">Page Designer</span>
+            <span class="sp">Charts &amp; Dashboards</span><span class="sp">REST Data Sources</span><span class="sp">Universal Theme</span>
           </div>
         </div>
 
@@ -553,40 +649,29 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
             <span class="sp core">SQL</span><span class="sp core">PL/SQL</span><span class="sp core">Oracle 10g&ndash;19c / XE</span>
             <span class="sp core">SQLcl</span><span class="sp core">Liquibase</span>
             <span class="sp">Oracle Text</span><span class="sp">Oracle Secure Files</span><span class="sp">Oracle Scheduler</span>
-            <span class="sp">Data Pump</span><span class="sp">SQL Developer</span><span class="sp">Toad for Oracle</span>
-            <span class="sp">Oracle Data Modeler</span><span class="sp">MySQL</span><span class="sp">MS Access</span>
+            <span class="sp">Data Pump</span><span class="sp">SQL Developer</span><span class="sp">Oracle Data Modeler</span><span class="sp">MySQL</span>
           </div>
         </div>
 
         <div class="sc">
-          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">DevOps &amp; Deployment</div></div>
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Cloud &amp; DevOps</div></div>
           <div class="pills">
-            <span class="sp core">SQLcl Projects</span><span class="sp core">Liquibase</span><span class="sp core">Git</span><span class="sp core">SVN</span>
-            <span class="sp">JIRA</span><span class="sp">BPMN</span><span class="sp">MS Visio</span>
-            <span class="sp">Ansible Tower</span><span class="sp">APEX Export/Import</span>
-            <span class="sp">Scripted Deployment</span><span class="sp">CI/CD Pipelines</span>
-          </div>
-        </div>
-
-        <div class="sc">
-          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Cloud &amp; Infrastructure</div></div>
-          <div class="pills">
-            <span class="sp core">Oracle Cloud (OCI)</span><span class="sp core">IDCS</span>
-            <span class="sp">AWS S3</span><span class="sp">MinIO</span><span class="sp">Hashicorp Vault</span>
-            <span class="sp">Elasticsearch</span><span class="sp">Apache</span>
-            <span class="sp">Oracle HTTP Server</span><span class="sp">Tomcat</span>
-            <span class="sp">JBoss AS</span><span class="sp">Glassfish</span><span class="sp">Oracle AS 10g/11g</span>
+            <span class="sp core">Oracle Cloud (OCI)</span><span class="sp core">AWS S3</span>
+            <span class="sp core">SQLcl Projects</span><span class="sp core">Liquibase</span><span class="sp core">Git</span>
+            <span class="sp">Oracle ADB</span><span class="sp">Oracle Vault</span><span class="sp">MinIO</span>
+            <span class="sp">Hashicorp Vault</span><span class="sp">Elasticsearch</span>
+            <span class="sp">CI/CD Pipelines</span><span class="sp">Ansible Tower</span><span class="sp">SVN</span>
           </div>
         </div>
 
         <div class="sc">
           <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Languages &amp; Frameworks</div></div>
           <div class="pills">
-            <span class="sp core">JavaScript</span><span class="sp core">jQuery</span><span class="sp core">HTML / CSS</span>
-            <span class="sp core">JSON / XML / YML</span>
-            <span class="sp">Java / J2EE</span><span class="sp">PHP</span><span class="sp">Python</span><span class="sp">.NET</span>
-            <span class="sp">ExtJs</span><span class="sp">Bootstrap</span><span class="sp">SVG</span>
-            <span class="sp">Oracle ADF</span><span class="sp">JSP / Servlets</span>
+            <span class="sp core">SQL / PL/SQL</span><span class="sp core">JavaScript</span><span class="sp core">Java</span>
+            <span class="sp core">JSON / YAML</span>
+            <span class="sp">Python</span><span class="sp">jQuery</span><span class="sp">HTML / CSS</span>
+            <span class="sp">PHP</span><span class="sp">.NET</span><span class="sp">ExtJs</span><span class="sp">Bootstrap</span>
+            <span class="sp">Oracle ADF</span><span class="sp">JSP / Servlets</span><span class="sp">SVG</span>
           </div>
         </div>
 
@@ -595,29 +680,17 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
           <div class="pills">
             <span class="sp core">Jasper Reports</span><span class="sp core">AOP (APEX Office Print)</span>
             <span class="sp core">Oracle BI Publisher</span><span class="sp core">DocGen</span>
-            <span class="sp">PDF Templates</span><span class="sp">Interactive Reports</span><span class="sp">Oracle Analytics</span>
+            <span class="sp">PDF Templates</span><span class="sp">Oracle Analytics</span>
           </div>
         </div>
 
         <div class="sc">
-          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">Integrations &amp; APIs</div></div>
-          <div class="pills">
-            <span class="sp core">ORDS REST Web Services</span>
-            <span class="sp">Stripe</span><span class="sp">PayPal</span><span class="sp">Hyper Pay</span><span class="sp">TouchNet</span><span class="sp">Your Pay</span>
-            <span class="sp">Google Maps API</span><span class="sp">Google Calendar</span><span class="sp">Google Apps API</span>
-            <span class="sp">Google Distance API</span><span class="sp">LDAP Server</span>
-            <span class="sp">UPS Rating API</span><span class="sp">REDCAP</span><span class="sp">SimpleTexting API</span>
-            <span class="sp">Easy Workforce</span><span class="sp">ECB Currency API</span>
-            <span class="sp">Yahoo Currency API</span><span class="sp">OCI APIs</span>
-          </div>
-        </div>
-
-        <div class="sc">
-          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">AI &amp; Productivity Tools</div></div>
+          <div class="sc-hd"><div class="sc-dot"></div><div class="sc-title">AI &amp; Tools</div></div>
           <div class="pills">
             <span class="sp core">Codex CLI</span><span class="sp core">Codex Desktop App</span>
             <span class="sp core">Codex Extension</span><span class="sp core">GenAI</span><span class="sp core">Cline</span>
-            <span class="sp">OpenCode</span><span class="sp">VSCode</span><span class="sp">Oracle JDeveloper</span>
+            <span class="sp">OpenCode</span><span class="sp">VSCode</span><span class="sp">JIRA</span>
+            <span class="sp">Confluence</span><span class="sp">Asana</span><span class="sp">BPMN</span><span class="sp">Draw.io</span>
             <span class="sp">AI Unit Testing</span><span class="sp">AI Documentation</span>
           </div>
         </div>
@@ -625,12 +698,13 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
         <div class="sc mgr-cat">
           <div class="sc-hd"><div class="sc-dot amber"></div><div class="sc-title amber">Management &amp; Leadership</div></div>
           <div class="pills">
-            <span class="sp mgr">Team Management</span><span class="sp mgr">People Leadership</span>
-            <span class="sp mgr">Hiring &amp; Recruitment</span><span class="sp mgr">Mentoring &amp; Coaching</span>
-            <span class="sp mgr-plain">Sprint Planning</span><span class="sp mgr-plain">Stakeholder Management</span>
-            <span class="sp mgr-plain">Requirement Gathering</span><span class="sp mgr-plain">Release Management</span>
-            <span class="sp mgr-plain">Code Reviews</span><span class="sp mgr-plain">Capacity Planning</span>
-            <span class="sp mgr-plain">Cross-LOB Collaboration</span><span class="sp mgr-plain">Production Support Lead</span>
+            <span class="sp mgr">People Leadership</span><span class="sp mgr">Team Management</span>
+            <span class="sp mgr">Hiring &amp; Tech Interviewing</span><span class="sp mgr">Coaching &amp; Career Growth</span>
+            <span class="sp mgr-plain">Agile / Scrum Delivery</span><span class="sp mgr-plain">Sprint Planning</span>
+            <span class="sp mgr-plain">Roadmapping</span><span class="sp mgr-plain">Stakeholder Management</span>
+            <span class="sp mgr-plain">Risk &amp; Dependency Mgmt</span><span class="sp mgr-plain">Release Management</span>
+            <span class="sp mgr-plain">QA Partnership</span><span class="sp mgr-plain">Incident Response</span>
+            <span class="sp mgr-plain">Code Reviews</span><span class="sp mgr-plain">Cross-LOB Collaboration</span>
           </div>
         </div>
 
@@ -641,19 +715,19 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
   <!-- PROJECTS -->
   <section id="projects">
     <div class="sec-hd fade-in">
-      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Oracle APEX Projects</h2></div>
+      <div class="sec-hd-l"><div class="sec-bar"></div><h2>Key Projects</h2></div>
       <span class="sec-sub">Notable enterprise deliverables</span>
     </div>
     <div class="proj-grid">
-      <div class="proj-c fade-in"><div class="proj-num">Project 01</div><div class="proj-name">SaaS FrontDesk (Oracle)</div><p class="proj-desc">Oracle's central tenant provisioning &amp; lifecycle management platform. Supports multiple workflow configurations, licensing metrics tracking, notification modules, group management and payload management.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 02</div><div class="proj-name">Utility Billing for Government (UB4G)</div><p class="proj-desc">End-to-end government billing SaaS solution. Delivered from MVP to full production with multi-tenant model. First customer: City of Bettendorf, Iowa. Subsequent municipalities onboarded after launch.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 03</div><div class="proj-name">KM Revenue Management System</div><p class="proj-desc">Centralized revenue analysis and forecasting platform for Cargojet with accrual management, adjustment tracking, mapping rules and an advanced reporting module with automated alerts and notifications.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 04</div><div class="proj-name">MoneyTrack &mdash; Sales CRM</div><p class="proj-desc">Dashboard-driven Sales CRM with KPI tracking, revenue goal management, pipeline reporting and centralized operations. Simplified Cargojet's sales workflow and improved data accuracy organization-wide.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 05</div><div class="proj-name">FAM Real Estate ERP</div><p class="proj-desc">Full-stack real estate ERP covering listing management, lead booking workflows, marketing, HR, finance, property management, website CRM integration and image processing. Custom APEX themes developed.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 06</div><div class="proj-name">ISQA Portal (Ostro Minerals)</div><p class="proj-desc">Enterprise portal for the global mineral industry (Diamond, Morganite, Topaz) with ETL workflows, minerals tracking, shipment, billing, invoicing, accounts ledger, reporting and Stripe payment integration.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 07</div><div class="proj-name">DBaaS Control Center</div><p class="proj-desc">First heterogeneous Database Automation framework with advanced analytics. Integrated Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch with microservices architecture and ORDS REST services.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 08</div><div class="proj-name">SDSU AztecLink Portal</div><p class="proj-desc">Secure SSO portal for San Diego State University enabling campus-wide multi-account management with LDAP Server and Google Apps API integration for user and group management.</p></div>
-      <div class="proj-c fade-in"><div class="proj-num">Project 09</div><div class="proj-name">Beef Asset Pro (Cattle Investors)</div><p class="proj-desc">World's first online virtual Feed Yard Manager &mdash; an Oracle APEX SaaS solution for agriculture with SVG API integration, complete database design and a multi-tenant architecture.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 01</div><div class="proj-name">SaaS FrontDesk (Oracle)</div><p class="proj-desc">Mission-critical tenant provisioning &amp; lifecycle management platform used by 6+ Global Industry Units and 25,000+ users. Reduced provisioning time by ~75% through end-to-end workflow automation across upstream and downstream teams.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 02</div><div class="proj-name">Utility Billing for Government (UB4G)</div><p class="proj-desc">End-to-end government billing SaaS solution supporting 40,000+ city users. Delivered from MVP to full production with multi-tenant model. First customer: City of Bettendorf, Iowa.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 03</div><div class="proj-name">Payment Modernization (ACT)</div><p class="proj-desc">Transformed the legacy USIOPAY payment system into a centralized, production-ready Oracle REST service with secure API-first architecture, unit testing and logging. Designed for multi-county adoption in PCI-regulated environments.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 04</div><div class="proj-name">KM Revenue Management System</div><p class="proj-desc">Centralized revenue analysis and forecasting platform for Cargojet with accrual management, adjustment tracking, mapping rules and an advanced reporting module with automated alerts and notifications.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 05</div><div class="proj-name">MoneyTrack &mdash; Sales CRM</div><p class="proj-desc">Dashboard-driven Sales CRM with KPI tracking, revenue goal management and pipeline reporting. Simplified Cargojet's sales workflow and improved data accuracy organization-wide.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 06</div><div class="proj-name">FAM Real Estate ERP</div><p class="proj-desc">Full-stack real estate ERP covering listing management, lead booking workflows, marketing, HR, finance, property management and website CRM integration. Custom APEX themes developed.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 07</div><div class="proj-name">ISQA Portal (Ostro Minerals)</div><p class="proj-desc">Enterprise portal for the global mineral industry with ETL workflows, minerals tracking, shipment, billing, invoicing, accounts ledger, reporting and Stripe payment integration.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 08</div><div class="proj-name">DBaaS Control Center</div><p class="proj-desc">First heterogeneous Database Automation framework with distributed microservices architecture. Integrated Ansible Tower, MinIO, Hashicorp Vault and Elasticsearch via ORDS REST services.</p></div>
+      <div class="proj-c fade-in"><div class="proj-num">Project 09</div><div class="proj-name">SDSU AztecLink &amp; Beef Asset Pro</div><p class="proj-desc">Secure SSO portal for San Diego State University (LDAP + Google Apps) and world's first online virtual Feed Yard Manager &mdash; an Oracle APEX SaaS solution with SVG API and multi-tenant architecture.</p></div>
     </div>
   </section>
 
@@ -676,12 +750,12 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
   <section id="contact">
     <div class="sec-hd fade-in">
       <div class="sec-hd-l"><div class="sec-bar"></div><h2>Get In Touch</h2></div>
-      <span class="sec-sub">Open to consulting, senior architect &amp; leadership roles</span>
+      <span class="sec-sub">Open to consulting, senior architect &amp; engineering manager roles</span>
     </div>
     <div class="contact-card fade-in">
       <div class="contact-l">
         <h3><strong>Let's work</strong> together</h3>
-        <p>Open to consulting engagements, senior APEX architect roles, engineering manager positions and enterprise Oracle projects globally. 19+ years of proven delivery across government, airline, real estate, minerals, agriculture and technology sectors.</p>
+        <p>Open to consulting engagements, senior APEX architect roles, engineering manager positions and enterprise Oracle projects globally. 19+ years of proven delivery across government, payments, airline, real estate, minerals, agriculture and technology sectors.</p>
         <div class="contact-rows">
           <div class="contact-row"><div class="contact-ico">&#128231;</div><div><div class="contact-lbl">Email</div><div class="contact-val"><a href="mailto:jpraulji@gmail.com">jpraulji@gmail.com</a></div></div></div>
           <div class="contact-row"><div class="contact-ico">&#128222;</div><div><div class="contact-lbl">Phone</div><div class="contact-val">+1 647-382-5992</div></div></div>
@@ -691,9 +765,9 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
         </div>
       </div>
       <div class="contact-r">
-        <div><h4>Key Strengths</h4><p>Architecture &middot; Development &middot; Team Management &middot; People Leadership &middot; Agile Delivery &middot; Client Engagement</p></div>
-        <div><h4>Domain Experience</h4><p>Government &middot; Airline &middot; Real Estate &middot; Minerals &middot; Agriculture &middot; Healthcare &middot; Education &middot; Technology</p></div>
-        <div><h4>Certifications</h4><p>Oracle APEX Cloud Developer Certified Professional &amp; Specialist &middot; Agile / Scrum</p></div>
+        <div><h4>Key Strengths</h4><p>API Architecture &middot; Engineering Management &middot; People Leadership &middot; Payment Platforms &middot; Agile Delivery &middot; PCI Compliance</p></div>
+        <div><h4>Domain Experience</h4><p>Government &middot; Payments &middot; Airline &middot; Real Estate &middot; Minerals &middot; Agriculture &middot; Healthcare &middot; Education &middot; Technology</p></div>
+        <div><h4>Certifications</h4><p>Oracle APEX Cloud Developer Certified Professional &amp; Specialist &middot; Agile / Scrum &middot; InsideOut Coaching&trade;</p></div>
       </div>
     </div>
   </section>
@@ -701,7 +775,7 @@ footer{background:var(--gray-900);color:var(--gray-500);font-size:.73rem;text-al
 </main>
 
 <footer>
-  <p>&copy; 2026 Jaydipsinh Raulji &middot; Oracle APEX Cloud Developer Certified Professional &middot; Barrie, Ontario, Canada</p>
+  <p>&copy; 2025 Jaydipsinh Raulji &middot; Engineering Manager &amp; Oracle APEX Cloud Developer Certified Professional &middot; Barrie, Ontario, Canada</p>
 </footer>
 
 <script>
